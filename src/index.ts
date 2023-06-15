@@ -26,6 +26,7 @@ const circleWidget = new Component();
 circleWidget.shape = new CircleContainer();
 circleWidget.locationLeft = 5;
 circleWidget.locationTop = 8;
+circleWidget.content = '<h4>Enlarge!</h4>'
 new WidgetClick(circleWidget, (_, widget:Component) => {
     let widgets = widget.canvas?.widgets!;
     for (const w of widgets){
@@ -36,3 +37,19 @@ new WidgetClick(circleWidget, (_, widget:Component) => {
 })
 
 canvas.addWidget(circleWidget);
+
+const circleWidget2 = new Component();
+circleWidget2.shape = new CircleContainer();
+circleWidget2.locationLeft = 8;
+circleWidget2.locationTop = 5;
+circleWidget2.content = '<h4>Decrease!</h4>'
+new WidgetClick(circleWidget2, (_, widget:Component) => {
+    let widgets = widget.canvas?.widgets!;
+    for (const w of widgets){
+        w.width -= 2;
+        w.height -= 2;
+        widget.canvas?.render()
+    }
+})
+
+canvas.addWidget(circleWidget2);

@@ -110,11 +110,11 @@ export default class Canvas {
     private placeShape(widget:Component, div: HTMLDivElement):void{
         const newStyle: Partial<CSSStyleDeclaration> = {
             gridArea: widget.locationTop.toString(),
-            gridColumnStart: widget.locationTop.toString(),
+            gridColumnStart:widget.locationLeft.toString(),
             gridColumnEnd: "span " + widget.width,
-            gridRowStart: widget.locationLeft.toString(),
-            gridRowEnd: "span " + widget.height, 
+            gridRowStart: widget.locationTop.toString(),
+            gridRowEnd: "span " + widget.height,
         }
-        Object.assign(div.style, newStyle)
+        Object.assign(div.style, newStyle);
     }
 }
